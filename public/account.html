@@ -217,7 +217,7 @@
             <label class="check" style="margin-top:12px"><input id="remember-device" type="checkbox"> Trust this device for 30 days</label>
           </div>
           <div class="captcha" id="captcha"></div>
-          <div class="row"><button class="primary" type="submit">Sign in</button><button id="client-sign-in" type="button">Sign in with the Burrow client</button></div>
+          <div class="row"><button class="primary" type="submit">Sign in</button><button id="client-sign-in" type="button">Sign in with the Mico client</button></div>
         </form>
         <p class="status" id="gate-status" role="status"></p>
         <p class="hint" style="margin:10px 0 0">No account yet? <a href="/register">Create one</a> · <a href="/account/recover">Forgot password or 2FA?</a></p>
@@ -386,7 +386,7 @@
 
         <section id="chat-bubble">
           <h2>Chat bubble</h2>
-          <p>Choose how your spoken chat bubbles look for everyone using Burrow's current client.</p>
+          <p>Choose how your spoken chat bubbles look for everyone using Mico's current client.</p>
           <form id="chat-style-form">
             <div class="gradient-editor">
               <div class="gradient-editor-head"><b>Gradient colours</b><button id="chat-stop-add" type="button">Add colour</button></div>
@@ -427,7 +427,7 @@
           <h2>Discord</h2>
           <p id="badges" hidden></p>
           <p id="discord-shown"></p>
-          <p class="hint" id="discord-about">Shown on your card in the game. Sign in to Discord to link your account; boosting Burrow's Discord server gives you the Server Booster badge while you boost.</p>
+          <p class="hint" id="discord-about">Shown on your card in the game. Sign in to Discord to link your account; boosting Mico's Discord server gives you the Server Booster badge while you boost.</p>
           <div class="row"><button class="primary" id="discord-link" type="button">Link Discord</button>
             <button id="discord-remove" type="button">Unlink</button></div>
           <p class="status" id="discord-status" role="status"></p>
@@ -543,7 +543,7 @@
           <div id="feedback-sent"></div>
         </section>
       </div>
-      <p class="hint" style="text-align:center;margin:20px 0 0">Burrow is an unofficial fan project, not affiliated with WildWorks or Animal Jam. <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+      <p class="hint" style="text-align:center;margin:20px 0 0">Mico is an unofficial fan project, not affiliated with WildWorks or Animal Jam. <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
     </div>
 
     <script src="/captcha.js"></script>
@@ -1156,15 +1156,15 @@
         }
       };
 
-      // "Sign in with the Burrow client" (lib/manage.js): the browser asks
-      // whether to open Burrow, which opens this page again signed in (in a
+      // "Sign in with the Mico client" (lib/manage.js): the browser asks
+      // whether to open Mico, which opens this page again signed in (in a
       // new tab: this one follows). once that has worked in this browser, the
       // page asks by itself each time it opens signed out.
       const CLIENT_KEY = "burrow-client-sign-in";
       const CLIENT_RESULTS = {
-        ok: "Burrow signed you in, but this browser did not keep it. Sign in with your password.",
+        ok: "Mico signed you in, but this browser did not keep it. Sign in with your password.",
         expired: "That sign-in took too long. Try again.",
-        elsewhere: "Burrow opened the page in another browser than the one you started in. Start from this browser again, or sign in with your password.",
+        elsewhere: "Mico opened the page in another browser than the one you started in. Start from this browser again, or sign in with your password.",
       };
       const clientResult = new URLSearchParams(location.search).get("client");
       const clientRemembered = () => {
@@ -1182,7 +1182,7 @@
           setStatus("gate-status", started.data.error || "That did not work.", true);
           return;
         }
-        setStatus("gate-status", "Opening Burrow… Allow it if your browser asks. Burrow must be logged in, or remember you.");
+        setStatus("gate-status", "Opening Mico… Allow it if your browser asks. Mico must be logged in, or remember you.");
         location.href = `burrow://account?n=${started.data.nonce}`;
         clearInterval(clientWait);
         const until = Date.now() + 120000;
@@ -1646,7 +1646,7 @@
         linked: "Discord linked.",
         cancelled: "Linking was cancelled.",
         expired: "That took too long, or was started in another browser. Try again.",
-        taken: "That Discord account is linked to another Burrow account.",
+        taken: "That Discord account is linked to another Mico account.",
         discord: "Discord did not answer. Try again later.",
         off: "Linking Discord is not available right now.",
       };
